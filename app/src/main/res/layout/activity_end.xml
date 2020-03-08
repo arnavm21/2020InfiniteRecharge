@@ -44,70 +44,24 @@
         android:layout_marginEnd="8dp"
         android:text="Robot Endgame Position"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="32sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/end" />
-
-    <RadioGroup
-        android:id="@+id/engameGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:checkedButton="@+id/radioNone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-        <RadioButton
-            android:id="@+id/radioPark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Park"
-            android:textSize="30sp" />
-
-        <RadioButton
-            android:id="@+id/radioHang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Hang"
-            android:textSize="30sp" />
-
-        <RadioButton
-            android:id="@+id/radioLevel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Hang and Level with other robots"
-            android:textSize="30sp" />
-
-        <RadioButton
-            android:id="@+id/radioNone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="None"
-            android:textSize="30sp"
-            tools:layout_editor_absoluteX="200dp"
-            tools:layout_editor_absoluteY="216dp" />
-    </RadioGroup>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Is the Robot Broken?"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="32sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/engameGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/endGroup" />
 
     <RadioGroup
         android:id="@+id/brokenGroup"
@@ -145,7 +99,7 @@
         android:layout_marginEnd="8dp"
         android:text="Did the Robot Play Defense?"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="32sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/brokenGroup" />
@@ -184,11 +138,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="8dp"
         android:text="Robot Did Not Show Up"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
     <TextView
         android:id="@+id/textView"
@@ -197,12 +153,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Balls Stuck Under Robot?"
+        android:text="Balls Stuck On/ Under Robot?"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="32sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/defenseGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
     <RadioGroup
         android:id="@+id/stuckGroup"
@@ -231,6 +187,62 @@
             android:layout_weight="1"
             android:text="No"
             android:textSize="30sp" />
+    </RadioGroup>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/defenseGroup" />
+
+    <RadioGroup
+        android:id="@+id/endGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:checkedButton="@+id/noneRadio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <RadioButton
+            android:id="@+id/noneRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="None"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/parkRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Park"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/hangRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hang"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/levelRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hang and Level"
+            android:textSize="18sp" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

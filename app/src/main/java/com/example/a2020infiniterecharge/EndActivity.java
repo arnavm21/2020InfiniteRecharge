@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,7 +22,8 @@ public class EndActivity extends AppCompatActivity {
     private RadioGroup defense;
     private RadioGroup broken;
     private RadioGroup stuck;
-    private String tablet = new String("red_1");
+    private RatingBar defenseRate;
+    private String tablet = new String("blue_2");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class EndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Bundle bundleEnd = new Bundle();
 
-                endgame = findViewById(R.id.engameGroup);
+                endgame = findViewById(R.id.endGroup);
                 int selectedEnd = endgame.getCheckedRadioButtonId();
                 final RadioButton selectedButtonEnd = findViewById(selectedEnd);
                 String endLevel = selectedButtonEnd.getText().toString();
@@ -65,10 +67,17 @@ public class EndActivity extends AppCompatActivity {
                 String stuckLevel = selectedButtonStuck.getText().toString();
 
 
+
+                defenseRate = findViewById(R.id.ratingBar);
+                String selectedRate = String.valueOf(defenseRate.getRating());
+
+
+
                 bundleEnd.putString("End Level", endLevel);
                 bundleEnd.putString("Defense", defenseLevel);
                 bundleEnd.putString("Broken", brokenLevel);
                 bundleEnd.putString("Stuck", stuckLevel);
+                bundleEnd.putString("DefenseRating", selectedRate);
 
                 String FILENAME = bundleMain.getString("Event") + "_" + tablet + ".csv";
                 String entry =
@@ -98,6 +107,7 @@ public class EndActivity extends AppCompatActivity {
                                 + bundleEnd.getString("Defense") + ","
                                 + bundleEnd.getString("Broken") +","
                                 + bundleEnd.getString("Stuck") + ","
+                                + bundleEnd.getString("DefenseRating") + ","
 
                                 + "NO SHOW" + ","
                                 + tablet
@@ -142,7 +152,7 @@ public class EndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Bundle bundleEnd = new Bundle();
 
-                endgame = findViewById(R.id.engameGroup);
+                endgame = findViewById(R.id.endGroup);
                 int selectedEnd = endgame.getCheckedRadioButtonId();
                 final RadioButton selectedButtonEnd = findViewById(selectedEnd);
                 String endLevel = selectedButtonEnd.getText().toString();
@@ -164,11 +174,16 @@ public class EndActivity extends AppCompatActivity {
                 final RadioButton selectedButtonStuck = findViewById(selectedStuck);
                 String stuckLevel = selectedButtonStuck.getText().toString();
 
+                defenseRate = findViewById(R.id.ratingBar);
+                String selectedRate = String.valueOf(defenseRate.getRating());
+
+
 
                 bundleEnd.putString("End Level", endLevel);
                 bundleEnd.putString("Defense", defenseLevel);
                 bundleEnd.putString("Broken", brokenLevel);
                 bundleEnd.putString("Stuck", stuckLevel);
+                bundleEnd.putString("DefenseRating", selectedRate);
 
                 String FILENAME = bundleMain.getString("Event") + "_" + tablet + ".csv";
                 String entry =
@@ -199,6 +214,8 @@ public class EndActivity extends AppCompatActivity {
                                 + bundleEnd.getString("Defense") + ","
                                 + bundleEnd.getString("Broken") +","
                                 + bundleEnd.getString("Stuck") + ","
+                                + bundleEnd.getString("DefenseRating") + ","
+
                                 + "SHOW" + ","
                                 + tablet
 

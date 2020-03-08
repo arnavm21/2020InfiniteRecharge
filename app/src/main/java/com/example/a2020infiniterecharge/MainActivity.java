@@ -14,13 +14,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     public EditText matchN;
     public EditText nameN;
-    public EditText eventN;
+    public TextView eventN;
     public int robot;
 
-    Integer[] robotN = {61, 78, 157, 166, 173, 181, 190, 316, 348, 1027, 1100, 1153,
-            1350, 1735, 1740, 1991, 2064, 2067, 2170, 2262, 2370, 2590, 2877, 3182,
-            3555, 3623, 3719, 4987, 5112, 5347, 5491, 5746, 6328, 6723, 6811, 7153,
-            7266, 7760, 8013};
+    Integer[] robotN = {58, 95, 125, 238, 509, 1058, 1073, 1153, 1289, 1474, 1721, 1761, 1965, 2084, 2423, 2713, 2876, 3323, 3451, 3467, 3930, 4169, 4311,
+    4473, 4761, 4796, 4906, 4929, 5422, 5459, 5556, 5563, 5735, 5752, 5813, 5962, 6762, 7674, 7795, 7822};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         acTextView.setAdapter(adapter);
 
         //change event from here
-        String string = "Northern CT";
+        String string = "North_Shore";
 
         matchN = findViewById(R.id.editMatch);
         nameN = findViewById(R.id.editName);
-        eventN = findViewById(R.id.editEvent);
+        eventN = findViewById(R.id.eventView);
         final Bundle bundleNext = getIntent().getExtras();
 
         if (bundleNext != null) {
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                 final TextView Name = findViewById(R.id.editName);
                 String name = Name.getText().toString();
-                final TextView Event = findViewById(R.id.editEvent);
+                final TextView Event = findViewById(R.id.eventView);
                 String event = Event.getText().toString();
                 int match = Integer.parseInt(((TextView) findViewById(R.id.editMatch)).getText().toString());
                 int robot = Integer.parseInt(((TextView) findViewById(R.id.robotNumber)).getText().toString());
